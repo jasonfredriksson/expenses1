@@ -32,13 +32,3 @@ class Database:
 
 	def __del__(self):
 		self.conn.close()
-
-
-#create_table()
-#insert(4,"6/28/2017",22.4,"alimento","golosinas",1,4)
-#insert(5,"6/29/2017",200,"alimento","verduleria",10,10)
-#insert(6,"6/29/2017",100,"limpieza","jabón lavarropas",10,10)
-#print(view())
-#update(4,"6/27/2017",22.4,"alimento","golosinas",3,5)
-#delete(6)
-
