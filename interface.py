@@ -1,27 +1,21 @@
+#A program that keeps track of transactions and stores buyer's perception parameters for
+#additional analysis enabling the detection of recurrent unnecessary expenses.
 
+#+-----|-------|-------|-----------|-------------|-----------|------------+
+#+iden-+-fecha-+-monto-+-categoría-+-descripción-+-necesidad-+-importancia+
+#+-----|-------|-------|-----------|-------------|-----------|------------+
+#User can:
 
-"""
-A program that keeps track of transactions and stores buyer's perception parameters for
-additional analysis enabling the detection of recurrent unnecessary expenses.
+#View all historical transactions
+#Search an entry
+#Add entry
+#Update entry
+#Delete
+#Close
 
-+-----|-------|-------|-----------|-------------|-----------|------------+
-+iden-+-fecha-+-monto-+-categoría-+-descripción-+-necesidad-+-importancia+
-+-----|-------|-------|-----------|-------------|-----------|------------+
-User can:
+#Eventually will:
 
-View all historical transactions
-Search an entry
-Add entry
-Update entry
-Delete
-Close
-
-
-
-Eventually will:
-
-view graphics of expenses
-"""
+#view graphics of expenses
 
 import time
 import tkinter
@@ -87,7 +81,7 @@ def update_command():
                     neces_entry.get(), import_entry.get())
 
 
-#######################################LABELS
+#######################################LABELS 
 
 window.wm_title("Expenses")
 
@@ -119,6 +113,7 @@ spacer2 = tkinter.Label(window, text="", height=12)
 spacer2.grid(row=0, column=0)
 
 ######################################FIELD ENTRY
+
 num_id = tkinter.StringVar()
 e1 = tkinter.Entry(window, textvariable=num_id)
 e1.grid(row=2, column=1, rowspan=1, columnspan=1)
@@ -182,3 +177,5 @@ b6 = tkinter.Button(window, text="Close", width=15, height=2, command=window.des
 b6.grid(row=7, column=5)
 
 window.mainloop()
+
+#Must create a function to sort the results per ID or other fields
