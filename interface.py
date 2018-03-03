@@ -1,21 +1,27 @@
-#A program that keeps track of transactions and stores buyer's perception parameters for
-#additional analysis enabling the detection of recurrent unnecessary expenses.
 
-#+-----|-------|-------|-----------|-------------|-----------|------------+
-#+iden-+-fecha-+-monto-+-categoría-+-descripción-+-necesidad-+-importancia+
-#+-----|-------|-------|-----------|-------------|-----------|------------+
-#User can:
 
-#View all historical transactions
-#Search an entry
-#Add entry
-#Update entry
-#Delete
-#Close
+"""
+A program that keeps track of transactions and stores buyer's perception parameters for
+additional analysis enabling the detection of recurrent unnecessary expenses.
 
-#Eventually will:
++-----|-------|-------|-----------|-------------|-----------|------------+
++iden-+-fecha-+-monto-+-categoría-+-descripción-+-necesidad-+-importancia+
++-----|-------|-------|-----------|-------------|-----------|------------+
+User can:
 
-#view graphics of expenses
+View all historical transactions
+Search an entry
+Add entry
+Update entry
+Delete
+Close
+
+
+
+Eventually will:
+
+view graphics of expenses
+"""
 
 import time
 import tkinter
@@ -50,7 +56,7 @@ def add_command():
         time.sleep(2)
         for row in database.view():
             list1.insert(tkinter.END, row)
-
+    view_command()        
 
 def get_select_row(event):
     global selected
@@ -74,14 +80,14 @@ def get_select_row(event):
 
 def delete_command():
     database.delete(selected[0])
-
+    view_command()
 
 def update_command():
     database.update(num_id.get(), fecha_entry.get(), monto_entry.get(), categ_entry.get(), descrip_entry.get(),
                     neces_entry.get(), import_entry.get())
+    view_command()
 
-
-#######################################LABELS 
+#######################################LABELS
 
 window.wm_title("Expenses")
 
@@ -113,7 +119,6 @@ spacer2 = tkinter.Label(window, text="", height=12)
 spacer2.grid(row=0, column=0)
 
 ######################################FIELD ENTRY
-
 num_id = tkinter.StringVar()
 e1 = tkinter.Entry(window, textvariable=num_id)
 e1.grid(row=2, column=1, rowspan=1, columnspan=1)
@@ -177,5 +182,3 @@ b6 = tkinter.Button(window, text="Close", width=15, height=2, command=window.des
 b6.grid(row=7, column=5)
 
 window.mainloop()
-
-#Must create a function to sort the results per ID or other fields
